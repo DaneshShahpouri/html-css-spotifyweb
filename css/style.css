@@ -5,6 +5,18 @@
 
     font-family: 'Montserrat', sans-serif;
 }
+
+.btn{
+    padding:5px 10px;
+    border-radius: 30px;
+    border:2px solid transparent;
+    box-shadow: 0 2px 5px transparent;
+    cursor: pointer;
+}
+
+.btn:hover{
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
 /*----------------------------
 COMMONS 
 -----------------------------*/
@@ -477,10 +489,11 @@ MAIN
 .main-container{
     width: calc(100vw - 230px);
     height: calc(100vh - 90px);
-    background-color: rgba(255, 0, 0, 0.53);
+    background-color: rgb(20, 25, 34);
     margin-left:230px;
     overflow: auto;
     position: relative;
+    top:0; left:0;
 }
 
 .main-container .upgrade-bar{
@@ -495,6 +508,16 @@ MAIN
     justify-content: flex-end;
     align-items: center;
     z-index: 1;
+}
+
+.main-container .upgrade-bar .btn-upgrade{
+    font-size: .7em;
+    border: 1px solid rgb(255, 255, 255);
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: transparent;
+    color: white;
+    margin-right: 15px;
 }
 
 .main-container .top-menu-wrapper{
@@ -517,20 +540,46 @@ MAIN
 }
 .main-container .top-menu-wrapper .top-menu li{
     height: 100%;
+    position: relative;
+    top:0; left:0;
 }
 
 .main-container .top-menu-wrapper .top-menu li a{
     text-decoration: none;
+    color: rgb(201, 201, 201);
+    font-size: .6em;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+}
+
+.main-container .top-menu-wrapper .top-menu .urderline-menu{
+    position: absolute;
+    bottom: 0; right:50%;
+    width:30px;
+    height: 2px;
+    background-color: green;
+    border-radius: 2px;
+    transform: translateX(50%);
+    display: none;
+}
+
+.main-container .top-menu-wrapper .top-menu li:hover .urderline-menu{
+    display: inline-block;
+}
+
+.main-container .top-menu-wrapper .top-menu li:hover a{
     color: white;
-    font-size: .8em;
 }
 
 .main-container .content-main-container{
     position: relative;
     top:100px;left: 0;
     width: 100%;
-    height: 2000px;
-    background-color: green;
+    
+   
 }
 
 /*----------------------------
