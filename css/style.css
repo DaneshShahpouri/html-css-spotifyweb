@@ -46,6 +46,8 @@ Over Element
 
     display: flex;
     flex-direction: column;
+
+    overflow: hidden;
 }
 
 .sidebar .logo{
@@ -53,6 +55,10 @@ Over Element
     padding: 20px;
 
     background-color: black;
+}
+
+#small-logo{
+    display: none;
 }
 
 .sidebar .logo img{
@@ -79,7 +85,8 @@ Over Element
 
 .bottom-sidebar .sidebar-topcontainer .icon-menu-top .icon-wrapper ul li{
     padding: 6px 20px;
-    border-left:2px solid transparent
+    border-left:2px solid transparent;
+    border-right:2px solid transparent;
 }
 
 .bottom-sidebar .sidebar-topcontainer .icon-menu-top .icon-wrapper ul li a{
@@ -203,14 +210,13 @@ Over Element
     border-radius: 50%;
     overflow: hide;
 }
+
 .sidebar-bottomcontainer .account .svg-wrapper svg{
     fill:white;
     transform: translateX(6px) translateY(2px);
 }
 
-
 /* HOVER  */
-
 .sidebar-bottomcontainer .install:hover span{
     color: white;
 }
@@ -222,7 +228,7 @@ Over Element
 fine Sidebar*/
 
 
-/* Bottom-bar
+/* Bottom-bar - left-side
 ----------------------------------------*/
 .bottom-bar{
     position: absolute;
@@ -231,7 +237,226 @@ fine Sidebar*/
     height:90px;
     width: 100vw;
     background-color: rgb(40, 40, 40);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
+.bottom-bar .left-side-container{
+    display: flex;
+    height: 100%;
+    max-width: 230px;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.bottom-bar .left-side-container .current-song-wrapper{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 5px;
+}
+
+.bottom-bar .left-side-container .current-song-wrapper img{
+    height: 60%;
+}
+
+.bottom-bar .left-side-container .current-song-wrapper .title-song{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    font-size: .7em;
+    color: white;
+    margin-left:5px;
+}
+
+.bottom-bar .left-side-container .left-icon-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.bottom-bar .left-side-container .left-icon-wrapper i{
+    color: rgb(220, 220, 220);
+    font-weight: 100;
+}
+
+/* Bottom-bar - central
+----------------------------------------*/
+.bottom-bar .central-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottom-bar .central-container .top-console{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.bottom-bar .central-container .top-console i{
+    color:rgb(232, 232, 232);
+    font-weight: 600;
+    font-size:1em;
+    cursor: pointer;
+}
+
+.bottom-bar .central-container .top-console i:hover{
+    color: white;
+}
+
+.bottom-bar .central-container .top-console .fa-circle-play{
+    font-size:1.8em;
+}
+
+.bottom-bar .central-container .bottom-console{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 10px 0;
+}
+
+.bottom-bar .central-container .bottom-console span{
+    font-size: .7em;
+    color: white;
+}
+
+/* SLIDER */
+.bottom-bar .central-container .bottom-console .song-slider{
+    width: 30vw;
+    height: 4px;
+
+    position: relative;
+    left:0;top:0;
+    background-color: rgb(90, 90, 90);
+    border-radius: 4px;
+}
+
+.bottom-bar .central-container .bottom-console .song-slider .slider{
+    height: 100%;
+    width: 20%;
+    position: absolute;
+    left:0;top:0;
+    background-color:rgb(193, 193, 193);
+    border-radius: 4px
+}
+
+
+/* Bottom-bar - right-side
+----------------------------------------*/
+.right-side-container{
+    display: flex;
+    align-items: center;
+    gap:50px
+}
+
+.right-side-container .icon-wrapper i{
+    color: rgb(232, 232, 232);
+}
+
+
+.right-side-container .volume-wrapper .radio-volume-wrapper{
+    position:relative;
+    top:0; right:0;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume{
+    display: block;
+    position: absolute;
+    top:2px; right:0px;
+
+    height: 30px;
+    width: 30px;
+    transform: translateY(-50%);
+    z-index: 3;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume.vol-three{
+    right: 10px;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume.vol-two{
+    right: 37px;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume.vol-one{
+    right:64px;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume.mute{
+    right:90px;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .volume-bar{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 2;
+    
+}
+
+.background-volume-bar{
+    position: relative;
+    top:0;right:20px;
+    background-color: rgb(90, 90, 90);
+    width: 100px;
+    height: 4px;
+}
+
+.right-side-container .volume{
+    position: absolute;
+    top: 0; left:-120px;
+    background-color:rgb(193, 193, 193);
+    width: 30px;
+    height: 4px;
+    color: rgb(231, 231, 231);
+
+    display: none;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .volume-bar .volume.bar-mute{
+    width: 0px;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .volume-bar .volume.bar-2{
+    width: 60px;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .volume-bar .volume.bar-3{
+    width: 100px;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .volume-bar .volume i{
+    position: absolute;
+    top:0; left:-25px;
+    transform: translateY(-50%);
+}
+
+
+/* VOLUME ACTIVE */
+.right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume.mute:checked + .volume-bar .volume.bar-mute{
+    display:block;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume.vol-one:checked + .volume-bar .volume.bar-1{
+    display: block;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume.vol-two:checked + .volume-bar .volume.bar-2{
+    display: block;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume.vol-three:checked + .volume-bar .volume.bar-3{
+    display: block;
+}
+
 /* -------------------------------- 
 fine Bottom-bar*/
 
@@ -244,4 +469,57 @@ fine Over Element
 /*----------------------------
 MEDIA
 -----------------------------*/
+@media screen and (max-width:575px){
 
+    /* SIDEBAR 
+    -------------------------------------------*/
+    .playlist,
+    .sidebar-bottomcontainer .install:hover span,
+    .sidebar-bottomcontainer .account span,
+    .sidebar-bottomcontainer .install span,
+    .playlist .crea-playlist:hover span,
+    .bottom-sidebar .sidebar-topcontainer .icon-menu-top .icon-wrapper ul li span,
+    #big-logo{
+        display: none;
+    }
+
+    #small-logo{
+        display: inline-block;
+        width: 100%;
+    }
+    
+    .sidebar .logo{
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        height: auto;
+    }
+
+    .sidebar .logo a{
+        width: 50%;
+        height:50%;
+    }
+
+    .over-element-container .sidebar{
+        width: 60px;
+    }
+
+    .bottom-sidebar .sidebar-topcontainer .icon-menu-top .icon-wrapper ul li,
+    .sidebar-bottomcontainer{
+        padding-left:5px;
+        padding-right:5px;
+    }
+
+
+    .sidebar-bottomcontainer .account,
+    .sidebar-bottomcontainer .install,
+    .bottom-sidebar .sidebar-topcontainer .icon-menu-top .icon-wrapper ul li a{
+        display:flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    /* -------------------------------------------
+    SIDEBAR */
+}

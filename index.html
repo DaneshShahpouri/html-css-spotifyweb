@@ -32,7 +32,8 @@
                 <header>
                     <div class="logo">
                         <a href="#">
-                            <img src="img/logo.svg" alt="logo">
+                            <img id="big-logo" src="img/logo.svg" alt="logo">
+                            <img id="small-logo"src="img/logo-small.svg" alt="logo piccolo">
                         </a>
                     </div>
                 </header>
@@ -116,6 +117,100 @@
 
             <!-- Bottom-Bar -->
             <div class="bottom-bar">
+
+                <div class="left-side-container">
+
+                    <div class="current-song-wrapper">
+                        <img src="img/sinister.jpeg" alt="sinister album">
+                        <div class="title-song">
+                            <h3>Sinister</h3>
+                            <span>Nome Brano</span>
+                        </div>
+                    </div>
+
+
+                    <div class="left-icon-wrapper">
+                        <i class="fa-solid fa-heart"></i>
+                        <i class="fa-regular fa-folder"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="central-container">
+
+                    <div class="top-console">
+
+                        <i class="fa-solid fa-shuffle"></i>
+                        <i class="fa-solid fa-backward-step"></i>
+                        <i class="fa-regular fa-circle-play"></i>
+                        <i class="fa-solid fa-forward-step"></i>
+                        <i class="fa-solid fa-rotate-right"></i>
+
+                    </div>
+
+                    <div class="bottom-console">
+
+                        <span class="current-time">0:25</span>
+
+                        <div class="song-slider">
+                            <div class="slider"></div>
+                        </div>
+                        
+                        <span class="total-time">4:35</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="right-side-container">
+                    
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-list-ul"></i>
+                        <i class="fa-solid fa-display"></i>
+                    </div>
+
+                    <div class="volume-wrapper">
+                        <div class="radio-volume-wrapper">
+                            <input type="radio" value="0" name="volume" class="radio-volume mute">
+                            <div class="volume-bar">
+                                <div class="volume bar-mute">
+                                    <i class="fa-solid fa-volume-xmark"></i>
+                                </div>
+                            </div>
+
+                            <input type="radio" value="1" name="volume" class="radio-volume vol-one" checked>
+                            <div class="volume-bar">
+                                <div class="volume bar-1">
+                                    <i class="fa-solid fa-volume-off"></i>
+                                </div>
+                            </div>
+
+                            <input type="radio" value="2" name="volume" class="radio-volume vol-two">
+                            <div class="volume-bar">
+                                <div class="volume bar-2">
+                                    <i class="fa-solid fa-volume-low"></i>
+                                </div>
+                            </div>
+
+                            <input type="radio" value="3" name="volume" class="radio-volume vol-three">
+                            <div class="volume-bar">
+                                <div class="volume bar-3">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </div>
+                            </div>
+
+
+                            <div class="background-volume-bar"></div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
 
 
             </div>  
