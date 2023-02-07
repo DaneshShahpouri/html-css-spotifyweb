@@ -21,7 +21,6 @@ COMMONS
 .app-container{
     width:100vw;
     height:100vh;
-    background-color: rgba(2, 2, 40, 0.247);
     position: relative;
     top:0; left:0
 }
@@ -48,6 +47,7 @@ Over Element
     flex-direction: column;
 
     overflow: hidden;
+    z-index:2;
 }
 
 .sidebar .logo{
@@ -241,6 +241,10 @@ fine Sidebar*/
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    overflow-x: hidden;
+
+    z-index:2;
 }
 
 .bottom-bar .left-side-container{
@@ -368,7 +372,7 @@ fine Sidebar*/
 .right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume{
     display: block;
     position: absolute;
-    top:2px; right:0px;
+    top:0px; right:0px;
 
     height: 30px;
     width: 30px;
@@ -460,15 +464,161 @@ fine Sidebar*/
 /* -------------------------------- 
 fine Bottom-bar*/
 
-
 /*----------------------------
 fine Over Element
+-----------------------------*/
+
+
+
+/*----------------------------
+MAIN
+-----------------------------*/
+
+.main-container{
+    width: calc(100vw - 230px);
+    height: calc(100vh - 90px);
+    background-color: rgba(255, 0, 0, 0.53);
+    margin-left:230px;
+    overflow: auto;
+    position: relative;
+}
+
+.main-container .upgrade-bar{
+    height: 60px;
+    position: fixed;
+    top:0; right:0px;
+
+    background-color:rgba(0, 0, 0, 0.479);
+    width: calc(100% - 230px);
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 1;
+}
+
+.main-container .top-menu-wrapper{
+    position: fixed;
+    top:60px; right: 0;
+    width:calc(100% - 230px);
+    height: 30px;
+    z-index: 1;
+}
+
+.main-container .top-menu-wrapper .top-menu{
+    list-style-type: none;
+
+    height:100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px
+}
+.main-container .top-menu-wrapper .top-menu li{
+    height: 100%;
+}
+
+.main-container .top-menu-wrapper .top-menu li a{
+    text-decoration: none;
+    color: white;
+    font-size: .8em;
+}
+
+.main-container .content-main-container{
+    position: relative;
+    top:100px;left: 0;
+    width: 100%;
+    height: 2000px;
+    background-color: green;
+}
+
+/*----------------------------
+fineMAIN
 -----------------------------*/
 
 
 /*----------------------------
 MEDIA
 -----------------------------*/
+@media screen and (max-width:768px){
+    /* bottom Bar -left-side
+    -------------------------------------------*/
+    .bottom-bar .left-side-container {
+       gap:0;
+    }
+    
+    .bottom-bar .left-side-container .left-icon-wrapper{
+       flex-direction: column;
+       justify-content: center;
+    }
+
+    .bottom-bar .left-side-container .left-icon-wrapper i{
+        font-size: .8em;
+    }
+
+    .bottom-bar .left-side-container .current-song-wrapper img{
+        height: 40%;
+    }
+
+    .bottom-bar .left-side-container .current-song-wrapper .title-song {
+        font-size: .6em;
+    }
+
+    
+    /* bottom Bar -center
+    -------------------------------------------*/
+
+    .bottom-bar .central-container .top-console{
+        gap:5px;
+    }
+
+    /* bottom Bar -right
+    -------------------------------------------*/
+    .bottom-bar .central-container .bottom-console {
+        gap:10px;
+    }
+
+    .right-side-container .volume-wrapper .radio-volume-wrapper .volume-bar .volume i{
+        font-size: .8em;
+        top:2px;
+        left:-23px
+    }
+
+    .right-side-container .icon-wrapper i{
+        font-size: .8em;
+    }
+
+    .background-volume-bar{
+        position: relative;
+        top:0;right:20px;
+        background-color: rgb(90, 90, 90);
+        width: 70px;
+        height: 4px;
+    }
+
+    .right-side-container .volume{
+        width: 25px;
+    }
+    
+    .right-side-container .volume-wrapper .radio-volume-wrapper .volume-bar .volume.bar-mute{
+        width: 0px;
+    }
+    
+    .right-side-container .volume-wrapper .radio-volume-wrapper .volume-bar .volume.bar-2{
+        width: 50px;
+    }
+    
+    .right-side-container .volume-wrapper .radio-volume-wrapper .volume-bar .volume.bar-3{
+        width: 70px;
+    }
+
+    .right-side-container .volume{
+        left:-90px;
+    }
+
+}
+
 @media screen and (max-width:575px){
 
     /* SIDEBAR 
@@ -522,4 +672,108 @@ MEDIA
     
     /* -------------------------------------------
     SIDEBAR */
+
+     /* bottom Bar -left-side
+    -------------------------------------------*/
+     .bottom-bar .left-side-container .left-icon-wrapper i{
+         font-size: .5em;
+     }
+ 
+     .bottom-bar .left-side-container .current-song-wrapper img{
+         height: 70%;
+     }
+ 
+     .bottom-bar .left-side-container .current-song-wrapper .title-song {
+         font-size: .55em;
+     }
+ 
+     
+     
+}
+    
+@media screen and (max-width:400px){
+/* bottom Bar -center
+-------------------------------------------*/
+
+.bottom-bar .central-container .top-console{
+    gap:15px;
+}
+
+.bottom-bar .central-container .top-console i{
+    font-size: 1em;
+}
+
+.bottom-bar .central-container .top-console .fa-circle-play{
+    font-size: 1.2em;
+}
+
+.bottom-bar .central-container .bottom-console span{
+    font-size:.5em
+}
+
+/* bottom Bar -right
+-------------------------------------------*/
+.bottom-bar .central-container .bottom-console {
+    gap:0px;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .volume-bar .volume i{
+    font-size: .6em;
+    top:4px;
+}
+
+.right-side-container .icon-wrapper i{
+    font-size: .6em;
+}
+
+.background-volume-bar{
+        width: 40px;
+
+}
+
+.right-side-container .volume{
+    width: 15px;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .volume-bar{
+    right:-30px
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .volume-bar .volume.bar-mute{
+    width: 0px;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .volume-bar .volume.bar-2{
+    width: 25px;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .volume-bar .volume.bar-3{
+    width: 40px;
+}
+
+.right-side-container .volume{
+    left:-60px;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume{
+    height: 15px;
+    width: 15px;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume.vol-three{
+    right: 5px;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume.vol-two{
+    right: 15px;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume.vol-one{
+    right:25px;
+}
+
+.right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume.mute{
+    right:35px;
+}
+
 }
