@@ -332,12 +332,31 @@ fine Sidebar*/
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 .bottom-bar .central-container .top-console{
     display: flex;
     gap: 30px;
     align-items: center;
+}
+
+.bottom-bar .central-container #play-btn{
+    position: absolute;
+    width: 40px;
+    height: 30px;
+    opacity: 0;
+}
+
+/* playanimation */
+.bottom-bar .central-container #play-btn:checked + .bottom-console .song-slider .slider{
+    animation: play-animation 285s ease;
+}
+
+.bottom-bar .central-container #play-btn:checked + .bottom-console  .current-time:after{
+    
+        animation: play-animation-time 285s ease;
+    
 }
 
 .bottom-bar .central-container .top-console i{
@@ -365,6 +384,10 @@ fine Sidebar*/
 .bottom-bar .central-container .bottom-console span{
     font-size: .7em;
     color: white;
+}
+
+.current-time:after{
+    content: "0:25";
 }
 
 /* SLIDER */
@@ -438,7 +461,7 @@ fine Sidebar*/
     position: absolute;
     top:0px; right:0px;
 
-    height: 30px;
+    height: 50px;
     width: 30px;
     transform: translateY(-50%);
     z-index: 3;
@@ -467,7 +490,6 @@ fine Sidebar*/
     top: 0px;
     right: 0px;
     z-index: 2;
-    
 }
 
 .background-volume-bar{
@@ -961,7 +983,7 @@ MEDIA
 -------------------------------------------*/
 
 .bottom-bar .central-container .top-console{
-    gap:20px;
+    gap:15px;
 }
 
 .bottom-bar .central-container .top-console i{
@@ -1000,7 +1022,7 @@ MEDIA
 }
 
 .background-volume-bar{
-        width: 40px;
+    width: 40px;
 
 }
 
@@ -1065,3 +1087,735 @@ MEDIA
     font-size: .55em;
 }
 }
+
+
+/*----------------------------
+Presentation
+-----------------------------*/
+
+.app-container{
+    opacity: 1;
+}
+
+.start-presentation{
+    position: absolute;
+    top:-100vh;left:0;
+    background-color: rgb(0, 0, 0);
+    width: 0vw;
+    height: 0vh;
+    opacity: 0;
+
+    animation: start-presentation 6s;
+    z-index:3;
+}
+
+.back-logo{
+    width:100%;
+    height:100%;
+    position: absolute;
+}
+
+
+.logo-container{
+    width: 100%;
+    height: 100%;
+}
+
+.logo-container #normal-logo{
+    position: relative;
+    top:50%;
+    left:50%;
+    width:400px;
+    transform: translateX(-50%) translateY(-50%);
+
+    opacity: 0;
+
+
+    animation:start-logo 6s
+}
+
+#big-logo-start{
+    position: absolute;
+    top:50%;
+    left:50%;
+    width:400px;
+    transform: translateX(-50%) translateY(-50%);
+    opacity:0;
+
+    animation:start-logo-text 3.8s
+}
+
+#small-logo-start{
+    position: absolute;
+    top:50%;
+    left:50%;
+    width:120px;
+    transform: translateX(-165%) translateY(-50%);
+    opacity:0;
+
+    animation: start-logo-icon 3.8s;
+}
+
+.background-black{
+    position:absolute;
+    top:25%;
+    left:0%;
+    width:calc(60% - 90px);
+    height:400px;
+    background:linear-gradient(to right, black 80%, rgba(0, 0, 0, 0) 90%);
+    opacity:0;
+
+    animation: start-BG-black 6s;
+}
+
+
+@keyframes start-logo{
+    0%{
+        top:50%;
+        left:50%;
+        width:400px;
+        transform: translateX(-50%) translateY(-50%);
+        opacity: 0;
+    }
+
+    58%{
+        opacity: 0;
+    }
+
+    65%{
+        top:50%;
+        left:50%;
+        width:400px;
+        transform: translateX(-50%) translateY(-50%);
+        opacity:1
+    }
+
+    80%{
+        top: 20px;
+        left: 20px;
+        width: 134px;
+        transform: translateX(0%) translateY(0%);
+        opacity: 1;
+    }
+
+    100%{
+        top: 20px;
+        left: 20px;
+        width: 134px;
+        transform: translateX(0%) translateY(0%);
+        opacity:1
+    }
+}
+
+@keyframes start-logo-icon{
+    0%{
+        top:50%;
+        left:50%;
+        width:120px;
+        transform: translateX(-50%) translateY(-50%) scale(0.6);
+        opacity:0;
+        
+    }
+
+    25%{
+        top:50%;
+        left:50%;
+        width:120px;
+        transform: translateX(-50%) translateY(-50%) scale(1);
+        opacity:1;
+    }
+
+    99%{
+        position: absolute;
+        top:50%;
+        left:50%;
+        width:120px;
+        transform: translateX(-165%) translateY(-50%);
+        opacity: 1;
+    }
+
+    100%{
+        opacity:0;
+    }
+}
+
+@keyframes start-logo-text{
+    0%{
+        top:50%;
+        left:0%;
+        width:400px;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    25%{
+        top:50%;
+        left:0%;
+        width:400px;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    99%{
+        top:50%;
+        left:50%;
+        width:400px;
+        transform: translateX(-50%) translateY(-50%);
+        opacity:1
+    }
+
+    100%{
+        top:50%;
+        left:50%;
+        width:400px;
+        transform: translateX(-50%) translateY(-50%);
+        opacity:0
+
+    }
+}
+
+@keyframes start-BG-black{
+    0%{
+        opacity:1;
+    }
+
+    58%{
+        opacity:1
+    }
+    65%{
+        opacity:0;
+    }
+    100%{
+        opacity:0;
+    }
+}
+
+@keyframes start-presentation{
+    0%{
+        top:0vh;left:0;
+        background-color: rgb(0, 0, 0);
+        width: 100vw;
+        height: 100vh;
+        z-index:3;
+        opacity:1;
+    }
+
+    85%{
+        display: inline-block;
+        opacity:1
+    }
+    100%{
+        top:0vh;left:0;
+        display: inline-block;
+        background-color: rgb(0, 0, 0);
+        width: 100vw;
+        height: 100vh;
+        z-index:3;
+        opacity:0;
+    }
+}
+
+@keyframes play-animation {
+    0%{
+        width:0%
+    }
+
+    100%{
+        width:100%
+    }
+}
+
+@keyframes play-animation-time{
+    /* 20sec */
+    0%{
+        content:"0:00"
+    }
+
+    0.35%{
+        content:"0:01"
+    }
+
+    0.7%{
+        content:"0:02"
+    }
+
+    1.05%{
+        content:"0:03"
+    }
+
+    1.40%{
+        content:"0:04"
+    }
+
+    1.75%{
+        content:"0:05"
+    }
+
+    2.1%{
+        content:"0:06"
+    }
+
+    2.45%{
+        content:"0:07"
+    }
+
+    2.8%{
+        content:"0:08"
+    }
+
+    3.15%{
+        content:"0:09"
+    }
+
+    3.5%{
+        content:"0:10"
+    }
+
+    3.85%{
+        content:"0:11"
+    }
+
+    4.2%{
+        content:"0:12"
+    }
+
+    4.55%{
+        content:"0:13"
+    }
+
+    4.9%{
+        content:"0:14"
+    }
+
+    5.25%{
+        content:"0:15"
+    }
+
+    5.6%{
+        content:"0:16"
+    }
+
+    5.95%{
+        content:"0:17"
+    }
+
+    6.3%{
+        content:"0:18"
+    }
+
+    6.65%{
+        content:"0:19"
+    }
+
+    7%{
+        content:"0:20"
+    }
+
+     /* 20sec */
+    7.35%{
+        content:"0:21"
+    }
+
+    7.7%{
+        content:"0:22"
+    }
+
+    8.05%{
+        content:"0:23"
+    }
+
+    8.40%{
+        content:"0:24"
+    }
+
+    8.75%{
+        content:"0:25"
+    }
+
+    9.1%{
+        content:"0:26"
+    }
+
+    9.45%{
+        content:"0:27"
+    }
+
+    9.8%{
+        content:"0:28"
+    }
+
+    10.15%{
+        content:"0:29"
+    }
+
+    10.5%{
+        content:"0:30"
+    }
+
+    10.85%{
+        content:"0:31"
+    }
+
+    11.2%{
+        content:"0:32"
+    }
+
+    11.55%{
+        content:"0:33"
+    }
+
+    11.9%{
+        content:"0:34"
+    }
+
+    12.25%{
+        content:"0:35"
+    }
+
+    12.6%{
+        content:"0:36"
+    }
+
+    12.95%{
+        content:"0:37"
+    }
+
+    13.3%{
+        content:"0:38"
+    }
+
+    13.65%{
+        content:"0:39"
+    }
+
+    14%{
+        content:"0:40"
+    }
+
+     /* 20sec */
+ 
+    14.35%{
+        content:"0:41"
+    }
+
+    14.7%{
+        content:"0:42"
+    }
+
+    15.05%{
+        content:"0:43"
+    }
+
+    15.40%{
+        content:"0:44"
+    }
+
+    15.75%{
+        content:"0:45"
+    }
+
+    16.1%{
+        content:"0:46"
+    }
+
+    16.45%{
+        content:"0:47"
+    }
+
+    16.8%{
+        content:"0:48"
+    }
+
+    17.15%{
+        content:"0:49"
+    }
+
+    17.5%{
+        content:"0:50"
+    }
+
+    17.85%{
+        content:"0:51"
+    }
+
+    18.2%{
+        content:"0:52"
+    }
+
+    18.55%{
+        content:"0:53"
+    }
+
+    18.9%{
+        content:"0:54"
+    }
+
+    19.25%{
+        content:"0:55"
+    }
+
+    19.6%{
+        content:"0:56"
+    }
+
+    19.95%{
+        content:"0:57"
+    }
+
+    20.3%{
+        content:"0:58"
+    }
+
+    20.65%{
+        content:"0:59"
+    }
+
+    21%{
+        content:"1:00"
+    }
+
+     /* 20sec */
+    21.35%{
+        content:"1:01"
+    }
+
+    21.7%{
+        content:"1:02"
+    }
+
+    22.05%{
+        content:"1:03"
+    }
+
+    22.40%{
+        content:"1:04"
+    }
+
+    22.75%{
+        content:"1:05"
+    }
+
+    23.1%{
+        content:"1:06"
+    }
+
+    23.45%{
+        content:"1:07"
+    }
+
+    23.8%{
+        content:"1:08"
+    }
+
+    24.15%{
+        content:"1:09"
+    }
+
+    24.5%{
+        content:"1:10"
+    }
+
+    24.85%{
+        content:"1:11"
+    }
+
+    25.2%{
+        content:"1:12"
+    }
+
+    25.55%{
+        content:"1:13"
+    }
+
+    25.9%{
+        content:"1:14"
+    }
+
+    26.25%{
+        content:"1:15"
+    }
+
+    26.6%{
+        content:"1:16"
+    }
+
+    26.95%{
+        content:"1:17"
+    }
+
+    27.3%{
+        content:"1:18"
+    }
+
+    27.65%{
+        content:"1:19"
+    }
+
+    28%{
+        content:"1:20"
+    }
+
+         /* 20sec */
+    28.35%{
+        content:"1:21"
+    }
+
+    28.7%{
+        content:"1:22"
+    }
+
+    29.05%{
+        content:"1:23"
+    }
+
+    29.40%{
+        content:"1:24"
+    }
+
+    29.75%{
+        content:"1:25"
+    }
+
+    30.1%{
+        content:"1:26"
+    }
+
+    30.45%{
+        content:"1:27"
+    }
+
+    30.8%{
+        content:"1:28"
+    }
+
+    31.15%{
+        content:"1:29"
+    }
+
+    31.5%{
+        content:"1:30"
+    }
+
+    31.85%{
+        content:"1:31"
+    }
+
+    32.2%{
+        content:"1:32"
+    }
+
+    32.55%{
+        content:"1:33"
+    }
+
+    32.9%{
+        content:"1:34"
+    }
+
+    33.25%{
+        content:"1:35"
+    }
+
+    33.6%{
+        content:"1:36"
+    }
+
+    33.95%{
+        content:"1:37"
+    }
+
+    34.3%{
+        content:"1:38"
+    }
+
+    34.65%{
+        content:"1:39"
+    }
+
+    35%{
+        content:"1:40"
+    }
+
+    /* 20sec */
+    35.35%{
+        content:"1:41"
+    }
+
+    35.7%{
+        content:"1:42"
+    }
+
+    36.05%{
+        content:"1:43"
+    }
+
+    36.40%{
+        content:"1:44"
+    }
+
+    36.75%{
+        content:"1:45"
+    }
+
+    37.1%{
+        content:"1:46"
+    }
+
+    37.45%{
+        content:"1:47"
+    }
+
+    37.8%{
+        content:"1:48"
+    }
+
+    38.15%{
+        content:"1:49"
+    }
+
+    38.5%{
+        content:"1:50"
+    }
+
+    38.85%{
+        content:"1:51"
+    }
+
+    39.2%{
+        content:"1:52"
+    }
+
+    39.55%{
+        content:"1:53"
+    }
+
+    39.9%{
+        content:"1:54"
+    }
+
+    40.25%{
+        content:"1:55"
+    }
+
+    40.6%{
+        content:"1:56"
+    }
+
+    40.95%{
+        content:"1:57"
+    }
+
+    41.3%{
+        content:"1:58"
+    }
+
+    41.65%{
+        content:"1:59"
+    }
+
+    42%{
+        content:"2:00"
+    }
+}
+
+/*----------------------------
+fine Presentation
+-----------------------------*/
