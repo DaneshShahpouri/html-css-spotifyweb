@@ -35,15 +35,6 @@ span{
 COMMONS 
 -----------------------------*/
 
-
-/* .over-element-container:hover .sidebar{
-    opacity: .5;
-   }
-
-.over-element-container:hover .sidebar:hover{
-    opacity: 1;
-} */
-
 .app-container{
     width:100vw;
     height:100vh;
@@ -626,8 +617,6 @@ fine Sidebar*/
     display: block;
 }
 
-
-
 /* -------------------------------- 
 fine Bottom-bar*/
 
@@ -828,10 +817,184 @@ fineMAIN
 -----------------------------*/
 
 
+
+/*----------------------------
+Presentation
+-----------------------------*/
+
+/* INFO 
+----------------------------- */
+.info{
+    position: absolute;
+    top: -75%;
+    
+    background-color: rgb(210, 204, 103);
+    color: rgb(23, 19, 19);
+    padding: 20px;
+   
+    opacity:0;
+}
+
+.info-play{
+    right: calc(50% - 20px);
+    width: 300px;
+    height: 0px;
+    z-index: 0;
+    transform: translateX(50%);
+    animation: start-info-animation 6s 5s;
+}
+
+
+.info-volume{
+    right: 150px;
+    width: 250px;
+    height: 0px;
+    z-index: 3;
+    transform: translateX(50%);
+    animation: start-info-animation 6s 9s;
+}
+
+.info span{
+    color:black;
+}
+
+@keyframes start-info-animation {
+    0%{
+        height: 117px;
+        opacity:0;
+        top:65%;
+        z-index: 3;
+    }  
+
+    25%{
+        opacity:1;
+        top:75%
+    }
+
+    35%{
+        top:74%
+    } 
+
+    45%{
+        top:75%
+    }
+
+    60%{
+        top:74%
+    }
+
+    75%{
+        opacity:1;
+        top:75%
+    }
+
+    100%{
+        opacity:0;
+        top:65%;
+        height: 117px;
+        z-index: 3;
+    }
+}
+
+.vignetta{
+    position: absolute;
+    background-color: rgb(210, 204, 103);
+    width: 23px;
+    height: 56px;
+    transform: rotate(45deg);
+    right: 50%;
+}
+/*----------------------------- 
+fine Info */
+
+
+.bottom-sidebar,
+main{
+    animation: start-opacity 15s;
+}
+
+.app-container{
+    opacity: 1;
+}
+
+.start-presentation{
+    position: absolute;
+    top:-100vh;left:0;
+    background-color: rgb(0, 0, 0);
+    width: 0vw;
+    height: 0vh;
+    opacity: 0;
+
+    animation: start-presentation 6s;
+    z-index:3;
+}
+
+.back-logo{
+    width:100%;
+    height:100%;
+    position: absolute;
+}
+
+
+.logo-container{
+    width: 100%;
+    height: 100%;
+}
+
+.logo-container #normal-logo{
+    position: relative;
+    top:50%;
+    left:50%;
+    width:400px;
+    transform: translateX(-50%) translateY(-50%);
+
+    opacity: 0;
+
+
+    animation:start-logo 6s
+}
+
+#big-logo-start{
+    position: absolute;
+    top:50%;
+    left:50%;
+    width:400px;
+    transform: translateX(-50%) translateY(-50%);
+    opacity:0;
+
+    animation:start-logo-text 3.8s
+}
+
+#small-logo-start{
+    position: absolute;
+    top:50%;
+    left:50%;
+    width:120px;
+    transform: translateX(-165%) translateY(-50%);
+    opacity:0;
+
+    animation: start-logo-icon 3.8s;
+}
+
+.background-black{
+    position:absolute;
+    top:25%;
+    left:0%;
+    width:calc(60% - 90px);
+    height:400px;
+    background:linear-gradient(to right, black 80%, rgba(0, 0, 0, 0) 90%);
+    opacity:0;
+
+    animation: start-BG-black 6s;
+}
+
+
+
+
 /*----------------------------
 MEDIA
 -----------------------------*/
-@media screen and (max-width:768px){
+@media screen and (max-width:769px){
 
     h2{
         font-size:1.2em;
@@ -962,6 +1125,11 @@ MEDIA
 
     .main-container .content-main-container{
         top:130px
+    }
+
+    /* INFO */
+    .info-play{
+        right: calc(50% - 8px);
     }
 }
 
@@ -1194,175 +1362,10 @@ MEDIA
     font-size: .55em;
 }
 }
-
-
 /*----------------------------
-Presentation
+fine MEDIA
 -----------------------------*/
 
-/* INFO 
------------------------------ */
-.info{
-    position: absolute;
-    top: -75%;
-    
-    background-color: rgb(210, 204, 103);
-    color: rgb(23, 19, 19);
-    padding: 20px;
-   
-    opacity:0;
-}
-
-.info-play{
-    right: 47.7%;
-    width: 300px;
-    height: 0px;
-    z-index: 0;
-    transform: translateX(50%);
-    animation: start-info-animation 6s 5s;
-}
-
-
-.info-volume{
-    right: 150px;
-    width: 250px;
-    height: 0px;
-    z-index: 3;
-    transform: translateX(50%);
-    animation: start-info-animation 6s 9s;
-}
-
-.info span{
-    color:black;
-}
-
-@keyframes start-info-animation {
-    0%{
-        height: 117px;
-        opacity:0;
-        top:65%;
-        z-index: 3;
-    }  
-
-    25%{
-        opacity:1;
-        top:75%
-    }
-
-    35%{
-        top:74%
-    } 
-
-    45%{
-        top:75%
-    }
-
-    60%{
-        top:74%
-    }
-
-    75%{
-        opacity:1;
-        top:75%
-    }
-
-    100%{
-        opacity:0;
-        top:65%;
-        height: 117px;
-        z-index: 3;
-    }
-}
-
-.vignetta{
-    position: absolute;
-    background-color: rgb(210, 204, 103);
-    width: 23px;
-    height: 56px;
-    transform: rotate(45deg);
-    right: 50%;
-}
-/*----------------------------- 
-fine Info */
-.bottom-sidebar,
-main{
-    animation: start-opacity 15s;
-}
-
-.app-container{
-    opacity: 1;
-}
-
-.start-presentation{
-    position: absolute;
-    top:-100vh;left:0;
-    background-color: rgb(0, 0, 0);
-    width: 0vw;
-    height: 0vh;
-    opacity: 0;
-
-    animation: start-presentation 6s;
-    z-index:3;
-}
-
-.back-logo{
-    width:100%;
-    height:100%;
-    position: absolute;
-}
-
-
-.logo-container{
-    width: 100%;
-    height: 100%;
-}
-
-.logo-container #normal-logo{
-    position: relative;
-    top:50%;
-    left:50%;
-    width:400px;
-    transform: translateX(-50%) translateY(-50%);
-
-    opacity: 0;
-
-
-    animation:start-logo 6s
-}
-
-#big-logo-start{
-    position: absolute;
-    top:50%;
-    left:50%;
-    width:400px;
-    transform: translateX(-50%) translateY(-50%);
-    opacity:0;
-
-    animation:start-logo-text 3.8s
-}
-
-#small-logo-start{
-    position: absolute;
-    top:50%;
-    left:50%;
-    width:120px;
-    transform: translateX(-165%) translateY(-50%);
-    opacity:0;
-
-    animation: start-logo-icon 3.8s;
-}
-
-.background-black{
-    position:absolute;
-    top:25%;
-    left:0%;
-    width:calc(60% - 90px);
-    height:400px;
-    background:linear-gradient(to right, black 80%, rgba(0, 0, 0, 0) 90%);
-    opacity:0;
-
-    animation: start-BG-black 6s;
-}
 
 
 /* Animation
@@ -2114,3 +2117,4 @@ main{
 /*----------------------------
 fine Presentation
 -----------------------------*/
+
