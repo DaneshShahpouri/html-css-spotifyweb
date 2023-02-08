@@ -27,6 +27,10 @@ span{
     color:rgb(161, 161, 161);
     font-size:.8em
 }
+
+.hidden{
+    opacity:0
+}
 /*----------------------------
 COMMONS 
 -----------------------------*/
@@ -44,7 +48,8 @@ COMMONS
     width:100vw;
     height:100vh;
     position: relative;
-    top:0; left:0
+    top:0; left:0;
+    background-color: black;
 }
 
 /*----------------------------
@@ -341,11 +346,53 @@ fine Sidebar*/
     align-items: center;
 }
 
+/* Buttons play stop */
 .bottom-bar .central-container #play-btn{
     position: absolute;
     width: 40px;
     height: 30px;
     opacity: 0;
+    cursor:pointer;
+    z-index: 2;
+}
+
+#btn-play-icon{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgb(212, 212, 212);
+    font-size: 2em;
+    transition:all .4s;
+
+    animation:start-info-btn 3s 4s 2;
+}
+
+#btn-stop-icon{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgb(208, 208, 208);
+    font-size: 2em;
+    display: none;
+    transition:all .4s;
+}
+
+.bottom-bar .central-container #play-btn:hover + .bottom-console .btn-play-stop #btn-play-icon{
+    color:white;
+}
+
+.bottom-bar .central-container #play-btn:hover + .bottom-console .btn-play-stop #btn-stop-icon{
+    color:white;
+}
+
+.bottom-bar .central-container #play-btn:checked + .bottom-console .btn-play-stop #btn-play-icon{
+    display:none;
+}
+
+.bottom-bar .central-container #play-btn:checked + .bottom-console .btn-play-stop #btn-stop-icon{
+    display:block;
 }
 
 /* playanimation */
@@ -360,7 +407,7 @@ fine Sidebar*/
 }
 
 .bottom-bar .central-container .top-console i{
-    color:rgb(232, 232, 232);
+    color:rgb(202, 202, 202);
     font-weight: 600;
     font-size:1em;
     cursor: pointer;
@@ -384,6 +431,15 @@ fine Sidebar*/
 .bottom-bar .central-container .bottom-console span{
     font-size: .7em;
     color: white;
+}
+
+.current-time{
+    position:relative;
+    left:30px
+}
+
+.total-time:after{
+    content: "4:35";
 }
 
 .current-time:after{
@@ -469,6 +525,7 @@ fine Sidebar*/
     cursor: pointer;
 }
 
+/* CHECKVOLUMI */
 .right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume.vol-three{
     right: 10px;
 }
@@ -770,9 +827,11 @@ fineMAIN
 MEDIA
 -----------------------------*/
 @media screen and (max-width:768px){
+
     h2{
         font-size:1.2em;
     }
+
     span{
         font-size:.7em
     }
@@ -811,6 +870,37 @@ MEDIA
     -------------------------------------------*/
     .bottom-bar .central-container .bottom-console {
         gap:10px;
+    }
+
+    .current-time{
+        left:10px
+    }
+
+      /* bottom Bar -right-side
+    -------------------------------------------*/
+
+    .right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume.vol-three{
+        right: 10px;
+        top:2px;
+        height:25px;
+    }
+    
+    .right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume.vol-two{
+        right: 30px;
+        top:2px;
+        height:25px;
+    }
+    
+    .right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume.vol-one{
+        right:50px;
+        top:2px;
+        height:25px;
+    }
+    
+    .right-side-container .volume-wrapper .radio-volume-wrapper .radio-volume.mute{
+        right:70px;
+        top:2px;
+        height:25px;
     }
 
     .right-side-container .volume-wrapper .radio-volume-wrapper .volume-bar .volume i{
@@ -952,6 +1042,8 @@ MEDIA
      .bottom-bar .central-container .top-console{
         gap:20px;
     }
+
+    
      /* MAIN 
 ----------------------------------------*/
 
@@ -1000,6 +1092,16 @@ MEDIA
 
 .bottom-bar .central-container .bottom-console span{
     font-size:.5em
+}
+
+.bottom-bar .central-container #btn-play-icon,
+.bottom-bar .central-container #btn-stop-icon{
+    font-size:1.5em;
+    top:-2px;
+}
+
+.current-time{
+    left:0;
 }
 
 /* bottom Bar -right
@@ -1093,6 +1195,95 @@ MEDIA
 Presentation
 -----------------------------*/
 
+/* INFO 
+----------------------------- */
+.info{
+    position: absolute;
+    top: -75%;
+    
+    background-color: rgb(210, 204, 103);
+    color: rgb(23, 19, 19);
+    padding: 20px;
+   
+    opacity:0;
+}
+
+.info-play{
+    right: 47.7%;
+    width: 300px;
+    height: 0px;
+    z-index: 0;
+    transform: translateX(50%);
+    animation: start-info-animation 6s 5s;
+}
+
+
+.info-volume{
+    right: 150px;
+    width: 250px;
+    height: 0px;
+    z-index: 3;
+    transform: translateX(50%);
+    animation: start-info-animation 6s 9s;
+}
+
+.info span{
+    color:black;
+}
+
+@keyframes start-info-animation {
+    0%{
+        height: 117px;
+        opacity:0;
+        top:65%;
+        z-index: 3;
+    }  
+
+    25%{
+        opacity:1;
+        top:75%
+    }
+
+    35%{
+        top:74%
+    } 
+
+    45%{
+        top:75%
+    }
+
+    60%{
+        top:74%
+    }
+
+    75%{
+        opacity:1;
+        top:75%
+    }
+
+    100%{
+        opacity:0;
+        top:65%;
+        height: 117px;
+        z-index: 3;
+    }
+}
+
+.vignetta{
+    position: absolute;
+    background-color: rgb(210, 204, 103);
+    width: 23px;
+    height: 56px;
+    transform: rotate(45deg);
+    right: 50%;
+}
+/*----------------------------- 
+fine Info */
+.bottom-sidebar,
+main{
+    animation: start-opacity 15s;
+}
+
 .app-container{
     opacity: 1;
 }
@@ -1168,6 +1359,9 @@ Presentation
     animation: start-BG-black 6s;
 }
 
+
+/* Animation
+------------------------------------------- */
 
 @keyframes start-logo{
     0%{
@@ -1320,6 +1514,52 @@ Presentation
 
     100%{
         width:100%
+    }
+}
+
+@keyframes start-opacity{
+    0%{
+        opacity: 0.2;
+    }
+
+    90%{
+        opacity: 0.2;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes start-info-btn{
+    0%{
+        transform: translateX(-50%) scale(1.0);
+        color:white
+    }
+    
+    20%{
+        transform:translateX(-50%) scale(1.05);
+        color:rgb(0, 161, 0)
+    }
+
+    40%{
+        transform:translateX(-50%) scale(1);
+        color:rgb(0, 203, 0)
+    }
+
+    60%{
+        transform:translateX(-50%) scale(1);
+        color:rgb(0, 203, 0)
+    }
+
+    80%{
+        transform:translateX(-50%) scale(1.05);
+        color:rgb(0, 161, 0)
+    }
+
+    100%{
+        transform:translateX(-50%) scale(1.0);
+        color:white
     }
 }
 
